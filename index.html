@@ -53,7 +53,11 @@
         <span class="mark__seal" aria-hidden="true">SG</span>
         <span class="mark__name">Sirata Gueye</span>
       </a>
-      <nav class="nav" aria-label="Sections">
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-btn__bars" aria-hidden="true"></span>
+        <span lang="fr">Menu</span><span lang="en">Menu</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Sections">
         <a href="#profil"><span lang="fr">Profil</span><span lang="en">Profile</span></a>
         <a href="#experience"><span lang="fr">Expérience</span><span lang="en">Experience</span></a>
         <a href="#methode"><span lang="fr">Méthode</span><span lang="en">Approach</span></a>
@@ -66,6 +70,7 @@
         <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
       </div>
     </div>
+    <div class="progress" aria-hidden="true"><span class="progress__bar"></span></div>
   </header>
 
   <main id="main">
@@ -263,31 +268,107 @@
         <h2 class="section__title" id="meth-h"><span lang="fr">Méthode</span><span lang="en">Approach</span></h2>
         <div class="section__body">
           <p class="lede lede--small">
-            <span lang="fr">Comment j'instruis un dossier de financement, de la lecture des comptes à la décision.</span>
-            <span lang="en">How I handle a financing application, from reading the accounts to the credit decision.</span>
+            <span lang="fr">Comment j'instruis un dossier de financement, de la lecture des comptes à la décision. Sélectionnez une étape pour voir ce que j'y contrôle.</span>
+            <span lang="en">How I handle a financing application, from reading the accounts to the credit decision. Select a step to see what I check.</span>
           </p>
-          <ol class="steps">
-            <li class="step">
-              <h3><span lang="fr">Lire les états financiers</span><span lang="en">Read the financial statements</span></h3>
-              <p><span lang="fr">Bilan, compte de résultat et annexes, avec les retraitements nécessaires pour comparer les exercices.</span><span lang="en">Balance sheet, income statement and notes, with the adjustments needed to compare financial years.</span></p>
-            </li>
-            <li class="step">
-              <h3><span lang="fr">Établir le diagnostic</span><span lang="en">Build the diagnosis</span></h3>
-              <p><span lang="fr">Rentabilité, structure financière, solvabilité, BFR et trésorerie.</span><span lang="en">Profitability, capital structure, solvency, working capital and cash position.</span></p>
-            </li>
-            <li class="step">
-              <h3><span lang="fr">Apprécier le risque</span><span lang="en">Assess the risk</span></h3>
-              <p><span lang="fr">Synthèse des points forts et des fragilités, puis proposition de notation du partenaire.</span><span lang="en">Strengths and weaknesses weighed up, followed by a rating proposal for the partner.</span></p>
-            </li>
-            <li class="step">
-              <h3><span lang="fr">Argumenter le dossier</span><span lang="en">Write the credit memo</span></h3>
-              <p><span lang="fr">Rédaction d'un dossier de crédit argumenté, présenté à la Direction des Risques.</span><span lang="en">A reasoned credit memo, presented to the Risk Department.</span></p>
-            </li>
-            <li class="step">
-              <h3><span lang="fr">Décider et transmettre</span><span lang="en">Decide and communicate</span></h3>
-              <p><span lang="fr">Validation dans les limites décisionnelles, dans le respect des procédures, puis transmission de la décision.</span><span lang="en">Approval within delegated limits and internal procedures, then communication of the decision.</span></p>
-            </li>
-          </ol>
+          <div class="steps" role="tablist" aria-label="Étapes / Steps">
+            <button class="step" type="button" role="tab" id="step-tab-1" aria-controls="step-panel-1" aria-selected="true" tabindex="0">
+              <span class="step__num" aria-hidden="true">1</span>
+              <span class="step__title"><span lang="fr">Lire les états financiers</span><span lang="en">Read the financial statements</span></span>
+            </button>
+            <button class="step" type="button" role="tab" id="step-tab-2" aria-controls="step-panel-2" aria-selected="false" tabindex="-1">
+              <span class="step__num" aria-hidden="true">2</span>
+              <span class="step__title"><span lang="fr">Établir le diagnostic</span><span lang="en">Build the diagnosis</span></span>
+            </button>
+            <button class="step" type="button" role="tab" id="step-tab-3" aria-controls="step-panel-3" aria-selected="false" tabindex="-1">
+              <span class="step__num" aria-hidden="true">3</span>
+              <span class="step__title"><span lang="fr">Apprécier le risque</span><span lang="en">Assess the risk</span></span>
+            </button>
+            <button class="step" type="button" role="tab" id="step-tab-4" aria-controls="step-panel-4" aria-selected="false" tabindex="-1">
+              <span class="step__num" aria-hidden="true">4</span>
+              <span class="step__title"><span lang="fr">Argumenter le dossier</span><span lang="en">Write the credit memo</span></span>
+            </button>
+            <button class="step" type="button" role="tab" id="step-tab-5" aria-controls="step-panel-5" aria-selected="false" tabindex="-1">
+              <span class="step__num" aria-hidden="true">5</span>
+              <span class="step__title"><span lang="fr">Décider et transmettre</span><span lang="en">Decide and communicate</span></span>
+            </button>
+            <span class="steps__track" aria-hidden="true"><span class="steps__fill"></span></span>
+          </div>
+          <div class="step-panel" role="tabpanel" id="step-panel-1" aria-labelledby="step-tab-1">
+            <p class="step-panel__kicker"><span lang="fr">Étape 1 sur 5 : Lire les états financiers</span><span lang="en">Step 1 of 5: Read the financial statements</span></p>
+            <div>
+            <p class="step-panel__lead"><span lang="fr">Bilan, compte de résultat et annexes, avec les retraitements nécessaires pour comparer les exercices.</span><span lang="en">Balance sheet, income statement and notes, with the adjustments needed to compare financial years.</span></p>
+            </div>
+            <div class="step-panel__checks">
+              <h3><span lang="fr">Points de contrôle</span><span lang="en">What I check</span></h3>
+              <ul>
+                <li><span lang="fr">Cohérence et qualité des comptes</span><span lang="en">Consistency and quality of the accounts</span></li>
+                <li><span lang="fr">Retraitements : crédit-bail, éléments exceptionnels</span><span lang="en">Adjustments: leasing, one-off items</span></li>
+                <li><span lang="fr">Comparaison sur plusieurs exercices</span><span lang="en">Comparison over several financial years</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="step-panel" role="tabpanel" id="step-panel-2" aria-labelledby="step-tab-2" hidden>
+            <p class="step-panel__kicker"><span lang="fr">Étape 2 sur 5 : Établir le diagnostic</span><span lang="en">Step 2 of 5: Build the diagnosis</span></p>
+            <div>
+            <p class="step-panel__lead"><span lang="fr">Rentabilité, structure financière, solvabilité, BFR et trésorerie.</span><span lang="en">Profitability, capital structure, solvency, working capital and cash position.</span></p>
+            </div>
+            <div class="step-panel__checks">
+              <h3><span lang="fr">Points de contrôle</span><span lang="en">What I check</span></h3>
+              <ul>
+                <li><span lang="fr">Taux de marge d'EBE et capacité d'autofinancement</span><span lang="en">EBITDA margin and cash flow from operations</span></li>
+                <li><span lang="fr">Endettement net / EBE et gearing</span><span lang="en">Net debt / EBITDA and gearing</span></li>
+                <li><span lang="fr">BFR en jours de chiffre d'affaires</span><span lang="en">Working capital in days of sales</span></li>
+                <li><span lang="fr">Trésorerie nette et son évolution</span><span lang="en">Net cash position and its trend</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="step-panel" role="tabpanel" id="step-panel-3" aria-labelledby="step-tab-3" hidden>
+            <p class="step-panel__kicker"><span lang="fr">Étape 3 sur 5 : Apprécier le risque</span><span lang="en">Step 3 of 5: Assess the risk</span></p>
+            <div>
+            <p class="step-panel__lead"><span lang="fr">Synthèse des points forts et des fragilités, puis proposition de notation du partenaire.</span><span lang="en">Strengths and weaknesses weighed up, followed by a rating proposal for the partner.</span></p>
+            </div>
+            <div class="step-panel__checks">
+              <h3><span lang="fr">Points de contrôle</span><span lang="en">What I check</span></h3>
+              <ul>
+                <li><span lang="fr">Points forts et fragilités du partenaire</span><span lang="en">The partner's strengths and weaknesses</span></li>
+                <li><span lang="fr">Signaux d'alerte sur le cycle d'exploitation</span><span lang="en">Warning signs in the operating cycle</span></li>
+                <li><span lang="fr">Proposition de notation argumentée</span><span lang="en">A reasoned rating proposal</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="step-panel" role="tabpanel" id="step-panel-4" aria-labelledby="step-tab-4" hidden>
+            <p class="step-panel__kicker"><span lang="fr">Étape 4 sur 5 : Argumenter le dossier</span><span lang="en">Step 4 of 5: Write the credit memo</span></p>
+            <div>
+            <p class="step-panel__lead"><span lang="fr">Rédaction d'un dossier de crédit argumenté, présenté à la Direction des Risques.</span><span lang="en">A reasoned credit memo, presented to the Risk Department.</span></p>
+            </div>
+            <div class="step-panel__checks">
+              <h3><span lang="fr">Points de contrôle</span><span lang="en">What I check</span></h3>
+              <ul>
+                <li><span lang="fr">Synthèse lisible pour la Direction des Risques</span><span lang="en">A clear summary for the Risk Department</span></li>
+                <li><span lang="fr">Recommandation motivée</span><span lang="en">A well-founded recommendation</span></li>
+                <li><span lang="fr">Réponse aux questions du comité</span><span lang="en">Answers to the committee's questions</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="step-panel" role="tabpanel" id="step-panel-5" aria-labelledby="step-tab-5" hidden>
+            <p class="step-panel__kicker"><span lang="fr">Étape 5 sur 5 : Décider et transmettre</span><span lang="en">Step 5 of 5: Decide and communicate</span></p>
+            <div>
+            <p class="step-panel__lead"><span lang="fr">Validation dans les limites décisionnelles, dans le respect des procédures, puis transmission de la décision.</span><span lang="en">Approval within delegated limits and internal procedures, then communication of the decision.</span></p>
+            </div>
+            <div class="step-panel__checks">
+              <h3><span lang="fr">Points de contrôle</span><span lang="en">What I check</span></h3>
+              <ul>
+                <li><span lang="fr">Respect des limites décisionnelles</span><span lang="en">Within delegated decision limits</span></li>
+                <li><span lang="fr">Conformité aux procédures et aux accords Marques</span><span lang="en">Compliance with procedures and brand agreements</span></li>
+                <li><span lang="fr">Transmission aux interlocuteurs internes et externes</span><span lang="en">Communication to internal and external stakeholders</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="steps__nav">
+            <button class="link-btn" type="button" data-step="prev"><span lang="fr">Étape précédente</span><span lang="en">Previous step</span></button>
+            <button class="link-btn" type="button" data-step="next"><span lang="fr">Étape suivante</span><span lang="en">Next step</span></button>
+          </div>
         </div>
       </div>
     </section>
@@ -309,11 +390,59 @@
                 <p><span lang="fr">C'est une question que je retrouve au quotidien dans l'instruction des dossiers : savoir lire, derrière les chiffres, les signaux qui précèdent la défaillance.</span><span lang="en">It is a question I face every day when assessing financing applications: reading, behind the figures, the signals that come before a default.</span></p>
               </div>
               <div class="grade" aria-label="Note obtenue : 16 sur 20">
-                <span class="grade__value">16<span class="grade__den">/20</span></span>
+                <span class="grade__value"><span data-count="16">16</span><span class="grade__den">/20</span></span>
                 <span class="grade__label"><span lang="fr">Note obtenue</span><span lang="en">Grade awarded</span></span>
               </div>
             </div>
           </article>
+
+          <div class="sim" id="simulateur" aria-labelledby="sim-h">
+            <div class="sim__head">
+              <h3 class="sim__title" id="sim-h"><span lang="fr">Simulateur : ce que coûte un délai clients qui s'allonge</span><span lang="en">Simulator: the cost of slower customer payments</span></h3>
+              <p class="sim__intro"><span lang="fr">Faites varier les délais d'une entreprise fictive et observez le BFR qu'elle doit financer. C'est le mécanisme étudié dans le mémoire.</span><span lang="en">Adjust the payment terms of a fictional company and watch the working capital it has to finance. This is the mechanism studied in the thesis.</span></p>
+            </div>
+
+            <div class="sim__grid">
+              <form class="sim__controls" onsubmit="return false">
+                <div class="field">
+                  <label for="sim-ca"><span lang="fr">Chiffre d'affaires annuel</span><span lang="en">Annual sales</span></label>
+                  <output for="sim-ca" data-out="ca"></output>
+                  <input type="range" id="sim-ca" name="ca" min="1" max="50" step="1" value="10">
+                </div>
+                <div class="field">
+                  <label for="sim-dso"><span lang="fr">Délai de paiement clients</span><span lang="en">Customer payment terms</span></label>
+                  <output for="sim-dso" data-out="dso"></output>
+                  <input type="range" id="sim-dso" name="dso" min="0" max="120" step="5" value="60">
+                </div>
+                <div class="field">
+                  <label for="sim-dio"><span lang="fr">Rotation des stocks</span><span lang="en">Inventory days</span></label>
+                  <output for="sim-dio" data-out="dio"></output>
+                  <input type="range" id="sim-dio" name="dio" min="0" max="120" step="5" value="45">
+                </div>
+                <div class="field">
+                  <label for="sim-dpo"><span lang="fr">Délai de paiement fournisseurs</span><span lang="en">Supplier payment terms</span></label>
+                  <output for="sim-dpo" data-out="dpo"></output>
+                  <input type="range" id="sim-dpo" name="dpo" min="0" max="120" step="5" value="50">
+                </div>
+                <button class="link-btn" type="button" data-sim-reset><span lang="fr">Revenir à la situation de départ</span><span lang="en">Reset to the starting point</span></button>
+              </form>
+
+              <div class="sim__result" aria-live="polite">
+                <p class="sim__label"><span lang="fr">BFR à financer</span><span lang="en">Working capital to finance</span></p>
+                <p class="sim__value" data-out="bfr"></p>
+                <p class="sim__days" data-out="days"></p>
+
+                <div class="sim__bars" aria-hidden="true">
+                  <div class="bar"><span class="bar__name"><span lang="fr">Créances clients</span><span lang="en">Receivables</span></span><span class="bar__track"><span class="bar__fill" data-bar="dso"></span></span></div>
+                  <div class="bar"><span class="bar__name"><span lang="fr">Stocks</span><span lang="en">Inventory</span></span><span class="bar__track"><span class="bar__fill" data-bar="dio"></span></span></div>
+                  <div class="bar bar--neg"><span class="bar__name"><span lang="fr">Dettes fournisseurs</span><span lang="en">Payables</span></span><span class="bar__track"><span class="bar__fill" data-bar="dpo"></span></span></div>
+                </div>
+
+                <p class="sim__delta" data-out="delta"></p>
+              </div>
+            </div>
+            <p class="sim__note"><span lang="fr">Modèle simplifié à but illustratif : délais exprimés en jours de chiffre d'affaires, année de 365 jours.</span><span lang="en">Simplified illustrative model: terms expressed in days of sales, 365-day year.</span></p>
+          </div>
         </div>
       </div>
     </section>
@@ -410,14 +539,24 @@
     <!-- Contact -->
     <section class="contact" id="contact" aria-labelledby="contact-h">
       <div class="wrap contact__grid">
-        <h2 class="contact__title" id="contact-h">
-          <span lang="fr">Échangeons sur votre mission VIE.</span>
-          <span lang="en">Let's talk about your V.I.E. assignment.</span>
-        </h2>
+        <div class="contact__intro">
+          <p class="contact__stamp" aria-hidden="true"><span lang="fr">Dossier complet</span><span lang="en">File complete</span></p>
+          <h2 class="contact__title" id="contact-h">
+            <span lang="fr">La décision vous appartient.</span>
+            <span lang="en">The decision is yours.</span>
+          </h2>
+          <p class="contact__sub"><span lang="fr">Vous recrutez un VIE en analyse financière, crédit ou financement d'entreprise ? Écrivez-moi, je vous réponds rapidement.</span><span lang="en">Hiring a V.I.E. in financial analysis, credit or corporate finance? Write to me and I will get back to you quickly.</span></p>
+        </div>
         <ul class="contact__list">
           <li>
             <span class="contact__label">E-mail</span>
-            <a href="mailto:siratagueye@gmail.com">siratagueye@gmail.com</a>
+            <span class="contact__mail">
+              <a href="mailto:siratagueye@gmail.com">siratagueye@gmail.com</a>
+              <button class="copy-btn" type="button" data-copy="siratagueye@gmail.com">
+                <span class="copy-btn__idle"><span lang="fr">Copier</span><span lang="en">Copy</span></span>
+                <span class="copy-btn__done"><span lang="fr">Copié</span><span lang="en">Copied</span></span>
+              </button>
+            </span>
           </li>
           <li>
             <span class="contact__label">LinkedIn</span>
