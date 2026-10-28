@@ -2,8 +2,8 @@
 
 Site personnel de Sirata Gueye, analyste financière (crédit et financement d'entreprise).
 
-Site en ligne : https://patheba10.github.io/portfolio-sirata/
-Version anglaise : https://patheba10.github.io/portfolio-sirata/?lang=en
+Site en ligne : https://sirata-gueye.vercel.app/
+Version anglaise : https://sirata-gueye.vercel.app/?lang=en
 
 ## Structure
 
